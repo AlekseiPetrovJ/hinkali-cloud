@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hinkali-cloud
+  datasource:
+    generate-unique-name: false
+    name: hinkalicloud
