@@ -1,6 +1,8 @@
 spring:
   application:
     name: hinkali-cloud
-  datasource:
-    generate-unique-name: false
-    name: hinkalicloud
+  data:
+    cassandra:
+      keyspace-name: hinkalicloud
+      schema-action: recreate
+      local-datacenter: datacenter1
