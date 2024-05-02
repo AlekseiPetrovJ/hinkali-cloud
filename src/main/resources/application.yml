@@ -2,7 +2,6 @@ spring:
   application:
     name: hinkali-cloud
   data:
-    cassandra:
-      keyspace-name: hinkalicloud
-      schema-action: recreate
-      local-datacenter: datacenter1
+    mongodb:
+      host: localhost
+      port: 27017

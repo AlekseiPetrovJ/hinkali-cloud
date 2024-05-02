@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import ru.petrov.hinkalicloud.model.Hinkali;
-import ru.petrov.hinkalicloud.model.HinkaliUDT;
 import ru.petrov.hinkalicloud.model.Ingredient;
 import ru.petrov.hinkalicloud.model.Order;
 import ru.petrov.hinkalicloud.repository.IngredientRepository;
@@ -64,7 +63,7 @@ public class DesignHinkaliController {
         if (errors.hasErrors()) {
             return "design";
         }
-        order.addTaco(new HinkaliUDT(hinkali.getName(), hinkali.getIngredients()));
+        order.addTaco(hinkali);
         log.info("Processing hinkali: {}", hinkali);
         return "redirect:/orders/current";
     }
