@@ -2,6 +2,7 @@
 
 # Приложение для заказа Хинкали
 
+Реализована асинхронная отправка объекта ActiveMQ (Artemis)
 ## REST API спроектирован и разработан на стеке:
 
 -   Spring Data JPA (H2 SQL)
@@ -13,6 +14,10 @@
 -   Spring MVC
 -   Maven
 -   Junit
+-   ActiveMQ (Artemis)
+
+### Запуск ActiveMQ (Artemis)
+docker run --detach --name mycontainer -p 61616:61616 -p 8161:8161 --rm apache/activemq-artemis:latest-alpine
 
 ### Запуск СУБД Cassandra
 Запуск образа с пробросом порта 9042:

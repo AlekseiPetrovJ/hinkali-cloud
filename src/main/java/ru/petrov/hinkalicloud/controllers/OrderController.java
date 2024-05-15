@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.petrov.hinkalicloud.model.Order;
 import ru.petrov.hinkalicloud.repository.OrderRepository;
+import ru.petrov.hinkalicloud.services.OrderMessagingService;
 
 import javax.validation.Valid;
 
@@ -20,10 +21,12 @@ import javax.validation.Valid;
 @SessionAttributes("order")
 public class OrderController {
     private final OrderRepository orderRepository;
+    private final OrderMessagingService messagingService;
 
     @Autowired
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(OrderRepository orderRepository, OrderMessagingService messagingService) {
         this.orderRepository = orderRepository;
+        this.messagingService = messagingService;
     }
 
     @GetMapping("/current")
@@ -37,6 +40,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
+        messagingService.sendOrder(order);
         orderRepository.save(order);
         log.info("Order submitted: {}", order);
         sessionStatus.setComplete();

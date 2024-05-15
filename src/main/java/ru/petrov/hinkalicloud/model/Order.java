@@ -39,6 +39,7 @@ public class Order implements Serializable {
     private String deliveryZip;
 
     @CreditCardNumber(message="Not a valid credit card number")
+//    @Schema(example = "17893729974")
     private String ccNumber;
 
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$",
