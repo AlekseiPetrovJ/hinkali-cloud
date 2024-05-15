@@ -3,6 +3,8 @@
 # Приложение для заказа Хинкали
 
 Реализована асинхронная отправка объекта ActiveMQ (Artemis)
+
+Приложение потребитель [hinkali-client](https://github.com/AlekseiPetrovJ/hinkali-client)
 ## REST API спроектирован и разработан на стеке:
 
 -   Spring Data JPA (H2 SQL)
