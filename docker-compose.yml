@@ -1,0 +1,12 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmhinkali
+      - RABBITMQ_DEFAULT_PASS=rmhinalipassword
+    ports:
+      - 15672:15672
+      - 5672:5672
